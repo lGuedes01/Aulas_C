@@ -23,7 +23,8 @@ void bin(int n, int *vet, int p)
 int main()
 {
     int decimal, p, vet[8];
-    for(p=0; p<8; p++){
+    for(p=0; p<8; p++)
+    {
         vet[p] = 0;
     }
     printf("Digite um numero: ");
