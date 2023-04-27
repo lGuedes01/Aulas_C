@@ -1,52 +1,51 @@
-// calculadora simples
+//Resolução benhur 
 #include <stdio.h>
 
 void calculadora()
 {
-    int n, resultado;
-    char operador = ' ';
-    printf("\nInsira um valor: ");
+    float n, total;
+    float n_armazenado = 0;
+    char op;
+    char op_armazenado = 'a';
+    printf("\nDigite uma operação\n");
     scanf("%d", &n);
-    resultado = n;
+    total = n;
     while (1)
     {
-        printf("\nResultado atual : %d", resultado);
-        printf("\nInsira um operador [ + | - | * | / ]: ");
-        getchar(); // pra "limpar o buffer", não tava reconhecendo o \n com scanf, não sei o porquê
-        operador = getchar();
-        if (operador == '\n')
-        {break;}
-        else if (operador=='+'||operador=='-'||operador=='*'||operador=='/')
+        op = getchar();
+        if (op == '\n')
+            break;
+        scanf("%d", &n);
+        
+        if (op == '+')
         {
-            printf("\nInsira um valor: ");
-            scanf("%d", &n);
+            if(op_armazenado == '+')
+                total += n_armazenado;
+            else if(op_armazenado == '-')
+                total-=n_armazenado;
+            n_armazenado = n;
+            op_armazenado = op;
         }
-        else
+        else if(op == '-')
         {
-            printf("Operador invalido. Tente novamente");
-            continue;
+            if(op_armazenado == '+')
+                total += n_armazenado;
+            else if(op_armazenado == '-')
+                total-=n_armazenado;
+            n_armazenado = n;
+            op_armazenado = op;
         }
-        if (operador == '+')
-            {resultado += n;}
-        else if (operador == '-')
-            {resultado -= n;}
-        else if (operador == '*')
-            {resultado *= n;}
-        else if (operador == '/')
-        {
-            if (n == 0)
-            {
-                printf("\nNao pode haver divisao por 0. Tente novamente");
-                continue;
-            }
-            resultado /= n;
-        }
+        else if(op == '*')
+            total*=n;
+        else if(op == '/')
+            total/=n;
+        printf("\n%d %c %d %c", n, op, n_armazenado, op_armazenado);
     }
-    printf("\nResultado FINAL: %d", resultado);
+    printf("\n%d\n", total);
+
 }
 
 int main()
 {
     calculadora();
-    return 0;
 }
