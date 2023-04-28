@@ -1,4 +1,4 @@
-//Resolução benhur 
+//Calculadora que funciona com operadores de Soma[+], Subtração[-], Divisão[/] e Multiplicação[*]
 #include <stdio.h>
 
 void calculadora()
