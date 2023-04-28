@@ -1,60 +1,62 @@
 // calculadora simples
 #include <stdio.h>
-#include <stdbool.h>
 
-bool operacao_valida(char operador)
+void calculadora()
 {
-
-}
-
-int retorna_int(char vet[10])
-{
-
-}
-
-
-void calculadora(char conta[100], int len_vet)
-{
-    char num[10];
-    int j = 0;
-    for (int i = 0; i < len_vet; i++)
+    int n, resultado;
+    char operador = ' ';
+    printf("\nInsira um valor: ");
+    scanf("%d", &n);
+    resultado = n;
+    while (operador != '\n')
     {
-        if (conta[i] >= 48 && conta[i] <= 57)
+        printf("\nResultado atual : %d", resultado);
+        printf("\nInsira um operador [ + | - | * | / ]: ");
+        getchar(); 
+        operador = getchar();
+        if (operador != '\n' && (operador=='+'||operador=='-'||operador=='*'||operador=='/'))
         {
-            num[j] = conta[i];
-            j++;
+            printf("\nInsira um valor: ");
+            scanf("%d", &n);
         }
         else
         {
-            retorna_int(num);
-            j = 0;
-            for (int k = 0; i < 10; k++)
+            if (operador != '\n')
+                printf("Operador invalido. Tente novamente");
+            continue;
+        }
+        if (operador == '+')
+        {
+            resultado += n;
+        }
+        else if (operador == '-')
+        {
+            resultado -= n;
+        }
+        else if (operador == '*')
+        {
+            resultado *= n;
+        }
+        else if (operador == '/')
+        {
+            if (n == 0)
             {
-                num[k] = NULL;
+                printf("\nNao pode haver divisao por 0. Tente novamente");
+                continue;
             }
             
-        }       
+            resultado /= n;
+        }
+
+        
     }
+    printf("\nResultado FINAL: %d", resultado);
+    
 }
 
 
 int main()
 {
-    // entre 48 e 57 são numeros
-
-    char conta[100] = "12+4";
-    int i;
-    // printf("Digite uma conta:\n");
-    // scanf(" %[^\n]s", conta);
-    // printf("\n%s", conta);
-    for (i = 0; i < 100; i++)
-    {
-        if (conta[i] == NULL)
-            break;
-    }
-    int len_vet = i;
-    // printf("\n%d", len_vet);
-    
-    calculadora(conta, len_vet);
+    calculadora();
     return 0;
 }
