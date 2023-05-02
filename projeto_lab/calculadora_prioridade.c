@@ -1,4 +1,4 @@
-//Calculadora que funciona com operadores de Soma[+], Subtração[-], Divisão[/] e Multiplicação[*]
+//Calculadora com prioridade
 #include <stdio.h>
 
 void calculadora()
@@ -10,7 +10,6 @@ void calculadora()
     printf("\nDigite uma operacao\n");
     scanf("%f", &n);
     total = n;
-    //12+2*3
     while (1)
     {
         op = getchar();
@@ -52,7 +51,6 @@ void calculadora()
                 else
                     {total = total / n;}
             }
-        // printf("\n%d %c %d %c", n, op, n_armazenado, op_armazenado);
     }
     if (op_armazenado == '-')
     {
