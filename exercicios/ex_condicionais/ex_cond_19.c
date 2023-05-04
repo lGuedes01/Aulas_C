@@ -29,7 +29,7 @@ int main()
         scanf("%d", &respost_aluno);
         printf("Resposta certa: %d\n", soma_a_b);
         if (respost_aluno == soma_a_b)
-        {
+        { 
             cont_acertos += 1;
         }
         cont_quest += 1;
